@@ -1,0 +1,37 @@
+.product {
+  background-color: white;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 10px;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 40rem;
+  margin-top: 20px;
+}
+.addButton,
+.subtractButton {
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #374151;
+  background-color: #c1f4f8;
+  border-radius: 10px;
+}
+.deleteButton {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #374151;
+  background-color: #f4feff;
+  border-radius: 10px;
+}
+.quantity {
+  display: flex;
+  background-color: #c1f4f8;
+  padding: 5px;
+  border-radius: 50%;
+  color: #374151;
+}
+.remove {
+  color: #000;
+  background-color: #ff9797;
+}

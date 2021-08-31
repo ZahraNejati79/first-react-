@@ -1,27 +1,43 @@
 import React, { Component } from "react";
-import render from "react-dom";
-import Product from "./components/product/product.js";
+import ProductList from "./components/productList/productList";
+import "./App.css";
 
 class App extends Component {
-  state = {
-    products: [
-      { title: "React", price: "100 $" },
-      { title: "JavaScript", price: "90 $" },
-      { title: "CSS", price: "70 $" },
-    ],
-  };
-
   render() {
     return (
       <div className="container" id="title">
-        <h1>Shopping App</h1>
-        {this.state.products.map((product) => {
-          console.log(product.title);
-          return <Product name={product.title} price={product.price} />;
-        })}
+        <ProductList />
       </div>
     );
   }
 }
+
+// const App = () => {
+//   const [products, setproducts] = useState([
+//     { title: "React", price: "100 $" },
+//     { title: "JavaScript", price: "90 $" },
+//     { title: "CSS", price: "70 $" },
+//   ]);
+//   const clickHandeler = () => {
+//     setproducts([
+//       { title: "React", price: "80 $" },
+//       { title: "JavaScript", price: "50 $" },
+//       { title: "CSS", price: "30 $" },
+//     ]);
+//   };
+//   return (
+//     <div className="container" id="title">
+//       <h1>Shopping App</h1>
+//       {products.map((product) => {
+//         return <Product name={product.title} price={product.price} />;
+//       })}
+//       <button onClick={clickHandeler}>change price</button>
+//     </div>
+//   );
+// };
+
+// const App = () => {
+//   return <Product />;
+// };
 
 export default App;
