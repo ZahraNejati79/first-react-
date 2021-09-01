@@ -50,7 +50,7 @@ class App extends Component {
   render() {
     return (
       <div className="container" id="title">
-        <NavBar count={this.totalCount} />
+        <NavBar count={this.totalCount()} />
         <ProductList
           products={this.state.products}
           addHandler={this.addHandler}
