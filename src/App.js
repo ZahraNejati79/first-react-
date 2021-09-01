@@ -20,33 +20,48 @@ class App extends Component {
     this.setState({ products: editedProduct });
   };
   addHandler = (id) => {
-    console.log("Add", id);
-    const productAddCopy = [...this.state.products];
-    const selectedproduct = productAddCopy.find((product) => product.id === id);
-    selectedproduct.quantity++;
-    this.setState({ products: productAddCopy });
+    const index = this.state.products.findIndex((product) => product.id === id);
+    const productSelect = { ...this.state.products[index] };
+    const product = [...this.state.products];
+    productSelect.quantity++;
+    product[index] = productSelect;
+    this.setState({ products: product });
   };
   subtractHandler = (id) => {
     console.log("subtract", id);
-    const productSubtractCopy = [...this.state.products];
-    const selectedSubtract = productSubtractCopy.find(
-      (product) => product.id === id
-    );
-
-    if (selectedSubtract.quantity === 1) {
-      const productFilter = this.state.products.filter(
+    const index = this.state.products.findIndex((product) => product.id === id);
+    const selectesItem = { ...this.state.products[index] };
+    if (selectesItem.quantity === 1) {
+      const editedProduct = this.state.products.filter(
         (product) => product.id !== id
       );
-
-      this.setState({ products: productFilter });
+      this.setState({ products: editedProduct });
     } else {
-      selectedSubtract.quantity--;
-      this.setState({ products: productSubtractCopy });
+      selectesItem.quantity--;
+      const product = [...this.state.products];
+      product[index] = selectesItem;
+      this.setState({ products: product });
     }
   };
   totalCount = () => {
     return this.state.products.length;
   };
+  // changeHandler(event, id) {
+  //   const index = this.state.products.findIndex((product) => product.id === id);
+  //   const product = { ...this.state.products[index] };
+  //   product.title = event.target.value;
+  //   const products = [...this.state.products];
+  //   products[index] = product;
+  //   this.setState({ products });
+
+  //   // const product = [...this.state.products];
+  //   // const selectItem = product.find((product) => product.id === id);
+  //   // selectItem.title = event.target.value;
+  //   // this.setState({ products: product });
+  // }
+  componentDidUpdate(prevprops, prevState) {
+    console.log("App.js", prevState);
+  }
   render() {
     return (
       <div className="container" id="title">
@@ -56,6 +71,7 @@ class App extends Component {
           addHandler={this.addHandler}
           subtractHandler={this.subtractHandler}
           removeHandler={this.removeHandler}
+          // changeHandler={this.changeHandler}
         />
       </div>
     );
