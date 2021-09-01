@@ -3,41 +3,58 @@ import ProductList from "./components/productList/productList";
 import "./App.css";
 
 class App extends Component {
+  state = {
+    products: [
+      { title: "React", price: "100 $", id: 1, quantity: 2 },
+      { title: "JavaScript", price: "90 $", id: 2, quantity: 4 },
+      { title: "CSS", price: "70 $", id: 3, quantity: 3 },
+    ],
+  };
+
+  removeHandler = (id) => {
+    console.log("clicked", id);
+    const editedProduct = this.state.products.filter(
+      (product) => product.id !== id
+    );
+    this.setState({ products: editedProduct });
+  };
+  addHandler = (id) => {
+    console.log("Add", id);
+    const productAddCopy = [...this.state.products];
+    const selectedproduct = productAddCopy.find((product) => product.id === id);
+    selectedproduct.quantity++;
+    this.setState({ products: productAddCopy });
+  };
+  subtractHandler = (id) => {
+    console.log("subtract", id);
+    const productSubtractCopy = [...this.state.products];
+    const selectedSubtract = productSubtractCopy.find(
+      (product) => product.id === id
+    );
+
+    if (selectedSubtract.quantity === 1) {
+      const productFilter = this.state.products.filter(
+        (product) => product.id !== id
+      );
+
+      this.setState({ products: productFilter });
+    } else {
+      selectedSubtract.quantity--;
+      this.setState({ products: productSubtractCopy });
+    }
+  };
   render() {
     return (
       <div className="container" id="title">
-        <ProductList />
+        <ProductList
+          products={this.state.products}
+          addHandler={this.addHandler}
+          subtractHandler={this.subtractHandler}
+          removeHandler={this.removeHandler}
+        />
       </div>
     );
   }
 }
-
-// const App = () => {
-//   const [products, setproducts] = useState([
-//     { title: "React", price: "100 $" },
-//     { title: "JavaScript", price: "90 $" },
-//     { title: "CSS", price: "70 $" },
-//   ]);
-//   const clickHandeler = () => {
-//     setproducts([
-//       { title: "React", price: "80 $" },
-//       { title: "JavaScript", price: "50 $" },
-//       { title: "CSS", price: "30 $" },
-//     ]);
-//   };
-//   return (
-//     <div className="container" id="title">
-//       <h1>Shopping App</h1>
-//       {products.map((product) => {
-//         return <Product name={product.title} price={product.price} />;
-//       })}
-//       <button onClick={clickHandeler}>change price</button>
-//     </div>
-//   );
-// };
-
-// const App = () => {
-//   return <Product />;
-// };
 
 export default App;
