@@ -1,9 +1,9 @@
 import styles from "./navBar.module.css";
-const NavBar = (props) => {
+const NavBar = ({ count }) => {
   return (
     <div className={styles.navBar}>
       <h1>Frontend Shopping</h1>
-      <span>{props.count}</span>
+      <span>{count}</span>
     </div>
   );
 };
