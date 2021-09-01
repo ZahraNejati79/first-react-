@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProductList from "./components/productList/productList";
 import "./App.css";
+import NavBar from "./components/navBar/navBar";
 
 class App extends Component {
   state = {
@@ -43,9 +44,13 @@ class App extends Component {
       this.setState({ products: productSubtractCopy });
     }
   };
+  totalCount = () => {
+    return this.state.products.length;
+  };
   render() {
     return (
       <div className="container" id="title">
+        <NavBar count={this.totalCount} />
         <ProductList
           products={this.state.products}
           addHandler={this.addHandler}

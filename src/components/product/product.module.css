@@ -17,6 +17,9 @@
   background-color: #c1f4f8;
   border-radius: 10px;
 }
+.subtractButton {
+  background-color: #f4feff;
+}
 .deleteButton {
   padding: 10px 20px;
   cursor: pointer;
