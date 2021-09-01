@@ -46,19 +46,19 @@ class App extends Component {
   totalCount = () => {
     return this.state.products.length;
   };
-  // changeHandler(event, id) {
-  //   const index = this.state.products.findIndex((product) => product.id === id);
-  //   const product = { ...this.state.products[index] };
-  //   product.title = event.target.value;
-  //   const products = [...this.state.products];
-  //   products[index] = product;
-  //   this.setState({ products });
+  changeHandler(event, id) {
+    const index = this.state.products.findIndex((product) => product.id === id);
+    const product = { ...this.state.products[index] };
+    product.title = event.target.value;
+    const products = [...this.state.products];
+    products[index] = product;
+    this.setState({ products });
 
-  //   // const product = [...this.state.products];
-  //   // const selectItem = product.find((product) => product.id === id);
-  //   // selectItem.title = event.target.value;
-  //   // this.setState({ products: product });
-  // }
+    // const product = [...this.state.products];
+    // const selectItem = product.find((product) => product.id === id);
+    // selectItem.title = event.target.value;
+    // this.setState({ products: product });
+  }
   componentDidUpdate(prevprops, prevState) {
     console.log("App.js", prevState);
   }
@@ -71,7 +71,7 @@ class App extends Component {
           addHandler={this.addHandler}
           subtractHandler={this.subtractHandler}
           removeHandler={this.removeHandler}
-          // changeHandler={this.changeHandler}
+          changeHandler={this.changeHandler}
         />
       </div>
     );

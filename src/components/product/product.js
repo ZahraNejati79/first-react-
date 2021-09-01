@@ -14,9 +14,9 @@ const Product = ({
       <p>product name : {product.name} course</p>
       <p>product price : {product.price}</p>
       <span className={styles.quantity}>{product.quantity}</span>
-      {/* <form>
+      <form>
         <input type="text" onChange={changeHandler}></input>
-      </form> */}
+      </form>
       <button className={styles.addButton} onClick={onAdd}>
         +
       </button>

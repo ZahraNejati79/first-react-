@@ -12,9 +12,9 @@ class ProductList extends Component {
               onAdd={() => this.props.addHandler(product.id)}
               onSubtract={() => this.props.subtractHandler(product.id)}
               onDelete={() => this.props.removeHandler(product.id)}
-              // changeHandler={(event) =>
-              //   this.props.changeHandler(event, product.id)
-              // }
+              changeHandler={(event) =>
+                this.props.changeHandler(event, product.id)
+              }
             />
           );
         })}
