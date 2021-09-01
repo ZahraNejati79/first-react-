@@ -1,12 +1,22 @@
 // import "./product.css";
 import styles from "./product.module.css";
 import { FaTrash } from "react-icons/fa";
-const Product = ({ click, product, onAdd, onSubtract, onDelete }) => {
+const Product = ({
+  click,
+  product,
+  onAdd,
+  onSubtract,
+  onDelete,
+  // changeHandler,
+}) => {
   return (
     <div className={styles.product} onClick={click}>
       <p>product name : {product.name} course</p>
       <p>product price : {product.price}</p>
       <span className={styles.quantity}>{product.quantity}</span>
+      {/* <form>
+        <input type="text" onChange={changeHandler}></input>
+      </form> */}
       <button className={styles.addButton} onClick={onAdd}>
         +
       </button>
