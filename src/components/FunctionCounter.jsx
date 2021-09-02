@@ -6,7 +6,7 @@ const FunctionCounter = (props) => {
   useEffect(() => {
     console.log("document title updatting");
     document.title = `clicked ${counter} times`;
-  }, [count]);
+  }, [counter]);
   return (
     <div>
       <input
