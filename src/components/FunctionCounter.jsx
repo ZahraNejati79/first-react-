@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const FunctionCounter = (props) => {
   const [counter, setCounter] = useState(0);
   const [name, setName] = useState("");
+  useEffect(() => {
+    console.log("document title updatting");
+    document.title = `clicked ${counter} times`;
+  }, [count]);
   return (
     <div>
       <input
