@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import ProductList from "./components/productList/productList";
 import "./App.css";
+import ClickCount from "./components/ClickCount";
+import withCounter from "./components/hoc/withCounter";
+import HoverCounter from "./components/HoverCount";
 import NavBar from "./components/navBar/navBar";
+import ProductList from "./components/productList/productList";
+import Wrapper from "./components/hoc/Wrapper";
 
 class App extends Component {
   state = {
@@ -10,6 +14,7 @@ class App extends Component {
       { title: "JavaScript", price: "90 $", id: 2, quantity: 4 },
       { title: "CSS", price: "70 $", id: 3, quantity: 3 },
     ],
+    isShow: true,
   };
 
   removeHandler = (id) => {
@@ -59,23 +64,25 @@ class App extends Component {
   //   // selectItem.title = event.target.value;
   //   // this.setState({ products: product });
   // }
-  componentDidUpdate(prevprops, prevState) {
-    console.log("App.js", prevState);
-  }
+  // componentDidUpdate(prevprops, prevState) {
+  //   console.log("App.js", prevState);
+  // }
   render() {
+    console.log("App.js render");
     return (
-      <div className="container" id="title">
-        <NavBar count={this.totalCount()} />
+      <>
+        {/* <NavBar count={this.totalCount()} />
         <ProductList
           products={this.state.products}
           addHandler={this.addHandler}
           subtractHandler={this.subtractHandler}
           removeHandler={this.removeHandler}
-          // changeHandler={this.changeHandler}
-        />
-      </div>
+          // changeHandler={this.changeHandler} */}
+        <ClickCount />
+        <HoverCounter />
+      </>
     );
   }
 }
 
-export default App;
+export default Wrapper(App, "container");
