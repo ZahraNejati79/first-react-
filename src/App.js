@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import Wrapper from "./components/hoc/wrapper";
-import ClickCount from "./components/ClickCount";
-import HoverCounter from "./components/HoverCount";
+import Wrapper from "./components/hoc/Wrapper";
+import ParentComponent from "./components/PureMemoComp/ParentComp";
 
 class App extends Component {
   state = {
@@ -75,8 +74,9 @@ class App extends Component {
   render() {
     return (
       <>
-        <ClickCount />
-        <HoverCounter />
+        {/* <ClickCount />
+        <HoverCounter /> */}
+        <ParentComponent />
       </>
     );
   }
