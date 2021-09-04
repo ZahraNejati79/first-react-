@@ -1,9 +1,8 @@
-const Wrapper = (WrappComponent, className) => {
+const Wrapper = (WrappeComponent, className) => {
   return (props) => {
-    console.log("cccccliccccccccccccccckkkkk");
     return (
       <div className={className}>
-        <WrappComponent {...props} />
+        <WrappeComponent {...props} />
       </div>
     );
   };

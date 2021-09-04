@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
+import Wrapper from "./components/hoc/wrapper";
 import ClickCount from "./components/ClickCount";
-import withCounter from "./components/hoc/withCounter";
 import HoverCounter from "./components/HoverCount";
-import NavBar from "./components/navBar/navBar";
-import ProductList from "./components/productList/productList";
-import Wrapper from "./components/hoc/Wrapper";
 
 class App extends Component {
   state = {
@@ -67,17 +64,17 @@ class App extends Component {
   // componentDidUpdate(prevprops, prevState) {
   //   console.log("App.js", prevState);
   // }
+  // => render
+  //         <NavBar count={this.totalCount()} />
+  //       <ProductList
+  //         products={this.state.products}
+  //         addHandler={this.addHandler}
+  //         subtractHandler={this.subtractHandler}
+  //         removeHandler={this.removeHandler}
+  //         changeHandler={this.changeHandler}
   render() {
-    console.log("App.js render");
     return (
       <>
-        {/* <NavBar count={this.totalCount()} />
-        <ProductList
-          products={this.state.products}
-          addHandler={this.addHandler}
-          subtractHandler={this.subtractHandler}
-          removeHandler={this.removeHandler}
-          // changeHandler={this.changeHandler} */}
         <ClickCount />
         <HoverCounter />
       </>
