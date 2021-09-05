@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import ClassRef from "./components/ClassRef/ClassRef";
+import FunctionalRef from "./components/FunctionalRef/FunctionalRef";
 import Wrapper from "./components/hoc/Wrapper";
 import ParentComponent from "./components/PureMemoComp/ParentComp";
 
@@ -74,9 +76,8 @@ class App extends Component {
   render() {
     return (
       <>
-        {/* <ClickCount />
-        <HoverCounter /> */}
-        <ParentComponent />
+        {/* <ClassRef /> */}
+        <FunctionalRef />
       </>
     );
   }
