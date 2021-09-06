@@ -16,9 +16,9 @@ import React, { useReducer, useState } from "react";
 //   return (
 //     <div>
 //       <h2> count is: {count}</h2>
-//       <butto onClick={() => dispatch("addOne")}></butto>
-//       <butto onClick={() => dispatch("addFive")}></butto>
-//       <butto onClick={() => dispatch("decrement")}></butto>
+//       <button onClick={() => dispatch("addOne")}></button>
+//       <button onClick={() => dispatch("addFive")}></button>
+//       <button onClick={() => dispatch("decrement")}></button>
 //     </div>
 //   );
 // };
@@ -32,7 +32,7 @@ const reducer = (state, action) => {
     case "addFive":
       return state + 5;
     case "decrement":
-      return state - 1;
+      return count - 1;
     default:
       return state;
   }
@@ -44,9 +44,9 @@ const CounterOne = () => {
   return (
     <div>
       <h2> count is: {count}</h2>
-      <butto onClick={() => dispatch("addOne")}> Add one </butto>
-      <butto onClick={() => dispatch("addFive")}> Add Five </butto>
-      <butto onClick={() => dispatch("decrement")}> Decrement </butto>
+      <button onClick={() => dispatch("addOne")}> Add one </button>
+      <button onClick={() => dispatch("addFive")}> Add Five </button>
+      <button onClick={() => dispatch("decrement")}> Decrement </button>
     </div>
   );
 };
