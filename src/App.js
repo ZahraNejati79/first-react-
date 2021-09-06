@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import ClassRef from "./components/ClassRef/ClassRef";
-import FunctionalRef from "./components/FunctionalRef/FunctionalRef";
+import CounterOne from "./components/context/counterOne";
+import CounterProvider from "./components/context/counterProvider";
 import Wrapper from "./components/hoc/Wrapper";
-import ParentComponent from "./components/PureMemoComp/ParentComp";
 
 class App extends Component {
   state = {
@@ -73,11 +72,15 @@ class App extends Component {
   //         subtractHandler={this.subtractHandler}
   //         removeHandler={this.removeHandler}
   //         changeHandler={this.changeHandler}
+
   render() {
+    console.log("renderApp");
     return (
       <>
-        {/* <ClassRef /> */}
-        <FunctionalRef />
+        <CounterProvider>
+          <p>wellcom</p>
+          <CounterOne />
+        </CounterProvider>
       </>
     );
   }
