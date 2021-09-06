@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import CounterOne from "./components/context/counterOne";
-import CounterProvider from "./components/context/counterProvider";
+import CounterOne from "./components/Context/CounterOne";
+import CounterProvider from "./components/Context/CounterProvider";
 import Wrapper from "./components/hoc/Wrapper";
 
 class App extends Component {
@@ -74,7 +74,6 @@ class App extends Component {
   //         changeHandler={this.changeHandler}
 
   render() {
-    console.log("renderApp");
     return (
       <>
         <CounterProvider>
