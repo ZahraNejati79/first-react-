@@ -21,14 +21,14 @@ export default CounterProvider;
 export const useCount = () => useContext(CounterContext);
 export const useCountAction = () => {
   const setCounter = useContext(CounterContextDidPatcher);
-  const addOne = () => {
-    return setCounter((prevCout) => prevCout + 1);
-  };
-  const addFive = () => {
-    return setCounter((prevCout) => prevCout + 5);
-  };
-  const decrement = () => {
-    return setCounter((prevCout) => prevCout - 1);
-  };
+  // const addOne = () => {
+  //   setCounter((PrevCount) => PrevCount + 1);
+  // };
+  // const addFive = () => {
+  //   setCounter((PrevCount) => PrevCount + 1);
+  // };
+  // const decrement = () => {
+  //   setCounter((PrevCount) => PrevCount - 1);
+  // };
   return { addOne, addFive, decrement };
 };

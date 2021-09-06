@@ -3,7 +3,7 @@ import "./App.css";
 import CounterOne from "./components/Context/CounterOne";
 import CounterProvider from "./components/Context/CounterProvider";
 import Wrapper from "./components/hoc/Wrapper";
-
+import CounterReducer from "./components/Resucer/CountReducer";
 class App extends Component {
   state = {
     products: [
@@ -78,7 +78,7 @@ class App extends Component {
       <>
         <CounterProvider>
           <p>wellcom</p>
-          <CounterOne />
+          <CounterReducer />
         </CounterProvider>
       </>
     );
