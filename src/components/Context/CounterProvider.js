@@ -19,16 +19,17 @@ const CounterProvider = ({ children }) => {
 export default CounterProvider;
 
 export const useCount = () => useContext(CounterContext);
-export const useCountAction = () => {
-  const setCounter = useContext(CounterContextDidPatcher);
-  // const addOne = () => {
-  //   setCounter((PrevCount) => PrevCount + 1);
-  // };
-  // const addFive = () => {
-  //   setCounter((PrevCount) => PrevCount + 1);
-  // };
-  // const decrement = () => {
-  //   setCounter((PrevCount) => PrevCount - 1);
-  // };
-  return { addOne, addFive, decrement };
-};
+export const useCountAction = () => useContext(CounterContextDidPatcher);
+// export const useCountAction = () => {
+//   const setCounter = useContext(CounterContextDidPatcher);
+//   const addOne = () => {
+//     setCounter((PrevCount) => PrevCount + 1);
+//   };
+//   const addFive = () => {
+//     setCounter((PrevCount) => PrevCount + 1);
+//   };
+//   const decrement = () => {
+//     setCounter((PrevCount) => PrevCount - 1);
+//   };
+//   return { addOne, addFive, decrement };
+// };
