@@ -49,7 +49,7 @@ const CounterOne = () => {
         <button onClick={() => dispatch({ type: "decrement", value: -1 })}>
           Decrement
         </button>
-        <button onClick={() => dispatch({ type: "reset", value: 0 })}>
+        <button onClick={() => dispatch({ type: "rese t", value: 0 })}>
           Reset
         </button>
       </div>

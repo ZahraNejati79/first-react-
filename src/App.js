@@ -78,7 +78,7 @@ class App extends Component {
       <>
         <CounterProvider>
           <p>wellcom</p>
-          <CounterReducer />
+          <CounterOne />
         </CounterProvider>
       </>
     );
