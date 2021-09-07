@@ -1,88 +1,58 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "./App.css";
-import CounterOne from "./components/Context/CounterOne";
-import CounterProvider from "./components/Context/CounterProvider";
+import NavBar from "./components/navBar/navBar";
+import ProductList from "./components/productList/productList";
 import Wrapper from "./components/hoc/Wrapper";
-import CounterReducer from "./components/Resucer/CountReducer";
-class App extends Component {
-  state = {
-    products: [
-      { title: "React", price: "100 $", id: 1, quantity: 2 },
-      { title: "JavaScript", price: "90 $", id: 2, quantity: 4 },
-      { title: "CSS", price: "70 $", id: 3, quantity: 3 },
-    ],
-    isShow: true,
-  };
 
-  removeHandler = (id) => {
-    console.log("clicked", id);
-    const editedProduct = this.state.products.filter(
-      (product) => product.id !== id
-    );
-    this.setState({ products: editedProduct });
-  };
-  addHandler = (id) => {
-    const index = this.state.products.findIndex((product) => product.id === id);
-    const productSelect = { ...this.state.products[index] };
-    const product = [...this.state.products];
+const App = () => {
+  const [products, setProduct] = useState([
+    { title: "React", price: "100 $", id: 1, quantity: 2 },
+    { title: "JavaScript", price: "90 $", id: 2, quantity: 4 },
+    { title: "CSS", price: "70 $", id: 3, quantity: 3 },
+  ]);
+  const addHandler = (id) => {
+    const index = products.findIndex((product) => product.id === id);
+    const productSelect = { ...products[index] };
+    const product = [...products];
     productSelect.quantity++;
     product[index] = productSelect;
-    this.setState({ products: product });
+    setProduct(product);
   };
-  subtractHandler = (id) => {
+  const subtractHandler = (id) => {
     console.log("subtract", id);
-    const index = this.state.products.findIndex((product) => product.id === id);
-    const selectesItem = { ...this.state.products[index] };
+    const index = products.findIndex((product) => product.id === id);
+    const selectesItem = { ...products[index] };
     if (selectesItem.quantity === 1) {
-      const editedProduct = this.state.products.filter(
-        (product) => product.id !== id
-      );
-      this.setState({ products: editedProduct });
+      const editedProduct = products.filter((product) => product.id !== id);
+      setProduct(editedProduct);
     } else {
       selectesItem.quantity--;
-      const product = [...this.state.products];
+      const product = [...products];
       product[index] = selectesItem;
-      this.setState({ products: product });
+      setProduct(product);
     }
   };
-  totalCount = () => {
-    return this.state.products.length;
+  const removeHandler = (id) => {
+    console.log("clicked", id);
+    const editedProduct = products.filter((product) => product.id !== id);
+    setProduct(editedProduct);
   };
-  // changeHandler(event, id) {
-  //   const index = this.state.products.findIndex((product) => product.id === id);
-  //   const product = { ...this.state.products[index] };
-  //   product.title = event.target.value;
-  //   const products = [...this.state.products];
-  //   products[index] = product;
-  //   this.setState({ products });
-
-  //   // const product = [...this.state.products];
-  //   // const selectItem = product.find((product) => product.id === id);
-  //   // selectItem.title = event.target.value;
-  //   // this.setState({ products: product });
-  // }
-  // componentDidUpdate(prevprops, prevState) {
-  //   console.log("App.js", prevState);
-  // }
-  // => render
-  //         <NavBar count={this.totalCount()} />
-  //       <ProductList
-  //         products={this.state.products}
-  //         addHandler={this.addHandler}
-  //         subtractHandler={this.subtractHandler}
-  //         removeHandler={this.removeHandler}
-  //         changeHandler={this.changeHandler}
-
-  render() {
-    return (
-      <>
-        <CounterProvider>
-          <p>wellcom</p>
-          <CounterOne />
-        </CounterProvider>
-      </>
-    );
-  }
-}
+  const changeHandler = () => {};
+  const totalCount = () => {
+    return products.length;
+  };
+  return (
+    <div>
+      <NavBar count={totalCount()} />
+      <ProductList
+        products={products}
+        addHandler={addHandler}
+        subtractHandler={subtractHandler}
+        removeHandler={removeHandler}
+        changeHandler={changeHandler}
+      />
+    </div>
+  );
+};
 
 export default Wrapper(App, "container");
