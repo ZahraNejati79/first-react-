@@ -10,7 +10,7 @@ const Product = ({ product, onAdd, onSubtract, onDelete, changeHandler }) => {
       <p>product price : {product.price}</p>
       <span className={styles.quantity}>{product.quantity}</span>
 
-      <input type="text" onChange={changeHandler} value={product.title}></input>
+      {/* <input type="text" onChange={changeHandler} value={product.title}></input> */}
 
       <button className={styles.addButton} onClick={onAdd}>
         +

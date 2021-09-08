@@ -6,8 +6,7 @@ import {
 } from "../providerContext/providerContext";
 
 const ProductList = () => {
-  const { addHandler, subtractHandler, removeHandler, changeHandler } =
-    useProductAction();
+  const dispatch = useProductAction();
 
   const products = useProducts();
   console.log("products", products);
@@ -18,10 +17,12 @@ const ProductList = () => {
           <Product
             product={product}
             key={product.id}
-            onAdd={() => addHandler(product.id)}
-            onSubtract={() => subtractHandler(product.id)}
-            onDelete={() => removeHandler(product.id)}
-            changeHandler={(event) => changeHandler(event, product.id)}
+            onAdd={() => dispatch({ type: "add", id: product.id })}
+            onSubtract={() => dispatch({ type: "decrement", id: product.id })}
+            onDelete={() => dispatch({ type: "delete", id: product.id })}
+            changeHandler={(event) =>
+              dispatch({ type: "add", id: product.id, event: event })
+            }
           />
         );
       })}
