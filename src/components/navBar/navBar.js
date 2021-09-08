@@ -1,9 +1,17 @@
+import {
+  useProductAction,
+  useProducts,
+} from "../providerContext/providerContext";
 import styles from "./navBar.module.css";
-const NavBar = ({ count }) => {
+
+const NavBar = () => {
+  const products = useProducts();
+  useProductAction();
+  const total = products.length;
   return (
     <div className={styles.navBar}>
       <h1>Frontend Shopping</h1>
-      <span>{count}</span>
+      <span>{total}</span>
     </div>
   );
 };

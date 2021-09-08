@@ -1,26 +1,32 @@
 import React, { Component } from "react";
 import Product from "../product/product";
-class ProductList extends Component {
-  render() {
-    return (
-      <div>
-        {this.props.products.map((product, index) => {
-          return (
-            <Product
-              product={product}
-              key={product.id}
-              onAdd={() => this.props.addHandler(product.id)}
-              onSubtract={() => this.props.subtractHandler(product.id)}
-              onDelete={() => this.props.removeHandler(product.id)}
-              // changeHandler={(event) =>
-              //   this.props.changeHandler(event, product.id)
-              // }
-            />
-          );
-        })}
-      </div>
-    );
-  }
-}
+import {
+  useProductAction,
+  useProducts,
+} from "../providerContext/providerContext";
+
+const ProductList = () => {
+  const { addHandler, subtractHandler, removeHandler, changeHandler } =
+    useProductAction();
+
+  const products = useProducts();
+  console.log("products", products);
+  return (
+    <div>
+      {products.map((product, index) => {
+        return (
+          <Product
+            product={product}
+            key={product.id}
+            onAdd={() => addHandler(product.id)}
+            onSubtract={() => subtractHandler(product.id)}
+            onDelete={() => removeHandler(product.id)}
+            changeHandler={(event) => changeHandler(event, product.id)}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 export default ProductList;
