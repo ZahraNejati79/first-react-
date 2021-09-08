@@ -6,7 +6,7 @@ import { useContext } from "react";
 const Product = ({ product, onAdd, onSubtract, onDelete, changeHandler }) => {
   return (
     <div className={styles.product}>
-      <p>product name : {product.title} course</p>
+      <p>product name : {product.title} </p>
       <p>product price : {product.price}</p>
       <span className={styles.quantity}>{product.quantity}</span>
 

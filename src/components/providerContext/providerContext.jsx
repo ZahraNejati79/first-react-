@@ -1,13 +1,14 @@
 import React, { useContext, useReducer, useState } from "react";
+import { productsData } from "../db/products";
 
 const ProductContext = React.createContext();
 const ProductContextDidPatcher = React.createContext();
 
-const initialState = [
-  { title: "React", price: "100 $", id: 1, quantity: 2 },
-  { title: "JavaScript", price: "90 $", id: 2, quantity: 4 },
-  { title: "CSS", price: "70 $", id: 3, quantity: 3 },
-];
+// const initialState = [
+//   { title: "React", price: "100 $", id: 1, quantity: 2 },
+//   { title: "JavaScript", price: "90 $", id: 2, quantity: 4 },
+//   { title: "CSS", price: "70 $", id: 3, quantity: 3 },
+// ];
 const reducer = (state, action) => {
   switch (action.type) {
     case "add": {
@@ -46,12 +47,23 @@ const reducer = (state, action) => {
       const editedProduct = state.filter((product) => product.id !== action.id);
       return editedProduct;
     }
+    case "filter": {
+      if (action.event === "") {
+        return productsData;
+      } else {
+        const Filtered = productsData.filter((product) => {
+          return product.availableSize.indexOf(action.event) >= 0;
+        });
+
+        return Filtered;
+      }
+    }
     default:
       return state;
   }
 };
 const ProductProvider = ({ children }) => {
-  const [products, dispatch] = useReducer(reducer, initialState);
+  const [products, dispatch] = useReducer(reducer, productsData);
   return (
     <ProductContext.Provider value={products}>
       <ProductContextDidPatcher.Provider value={dispatch}>
