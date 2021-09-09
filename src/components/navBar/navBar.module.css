@@ -1,6 +1,6 @@
 .navBar {
   width: 100%;
-  height: 70px;
+  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,6 +8,7 @@
 }
 .navBar h1 {
   font-size: 25px;
+  padding: 20px;
   color: rgb(59, 59, 59);
 }
 .navBar span {

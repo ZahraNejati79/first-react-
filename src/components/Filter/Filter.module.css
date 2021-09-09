@@ -1,0 +1,17 @@
+.filterContainer {
+  width: 50rem;
+  height: 30rem;
+  background-color: rgb(250, 254, 255);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.FilterSelect {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.Select {
+  margin: 20px;
+  width: 100px;
+}
