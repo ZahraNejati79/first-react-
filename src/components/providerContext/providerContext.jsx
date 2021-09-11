@@ -1,6 +1,8 @@
 import React, { useContext, useReducer, useState } from "react";
 import { productsData } from "../db/products";
 import _ from "lodash";
+import { icons } from "react-icons";
+
 const ProductContext = React.createContext();
 const ProductContextDidPatcher = React.createContext();
 
@@ -61,7 +63,7 @@ const reducer = (state, action) => {
     }
     case "sort": {
       const value = action.selectedOption.value;
-      console.log("value :", value);
+      console.log("state", state);
       const product = [...state];
       if (value === "lowest") {
         return _.orderBy(product, ["price"], ["asc"]);
@@ -69,6 +71,18 @@ const reducer = (state, action) => {
         return _.orderBy(product, ["price"], ["desc"]);
       }
     }
+    case "search": {
+      // console.log("value:", action.event);
+      if (action.event === "") {
+        return productsData;
+      } else {
+        const filteredproduct = productsData.filter((p) =>
+          p.title.toLowerCase().includes(action.event)
+        );
+        return filteredproduct;
+      }
+    }
+
     default:
       return state;
   }
