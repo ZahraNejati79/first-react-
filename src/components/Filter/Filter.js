@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useProductAction } from "../providerContext/providerContext";
-import Select from "react-select";
 import styles from "./Filter.module.css";
+import SelectComponent from "../../common/Select/Select";
 const options = [
   { value: "", label: "All" },
   { value: "S", label: "S" },
@@ -32,24 +32,20 @@ const Filter = () => {
   return (
     <div className={styles.filterContainer}>
       <p>Filter Products based on</p>
-      <div className={styles.FilterSelect}>
-        order by :
-        <Select
-          className={styles.Select}
-          value={value}
-          onChange={filtertHandler}
-          options={options}
-        />
-      </div>
-      <div className={styles.FilterSelect}>
-        sort by :
-        <Select
-          className={styles.Select}
-          value={sort}
-          onChange={sortHandler}
-          options={sortOptions}
-        />
-      </div>
+      <SelectComponent
+        options={options}
+        value={value}
+        className={styles.Select}
+        onChange={filtertHandler}
+        title="order by"
+      />
+      <SelectComponent
+        options={sortOptions}
+        value={sort}
+        className={styles.Select}
+        onChange={sortHandler}
+        title="sort by"
+      />
     </div>
   );
 };
