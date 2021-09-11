@@ -46,7 +46,7 @@ export const productsData = [
     quantity: 1,
     description: "yellow",
     availableSize: ["X", "L", "XL", "XXL"],
-    price: 50,
+    price: 100,
     isFreeShopping: true,
   },
   {
@@ -66,7 +66,7 @@ export const productsData = [
     quantity: 1,
     description: "pink",
     availableSize: ["X", "XXL", "S"],
-    price: 90,
+    price: 50,
     isFreeShopping: false,
   },
 ];

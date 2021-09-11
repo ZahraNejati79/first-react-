@@ -1,6 +1,7 @@
 .filterContainer {
-  width: 50rem;
-  height: 30rem;
+  background-color: rebeccapurple;
+  width: 500 px;
+  height: 30 px;
   background-color: rgb(250, 254, 255);
   display: flex;
   justify-content: space-evenly;
