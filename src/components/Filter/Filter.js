@@ -13,7 +13,6 @@ const options = [
   { value: "XXL", label: "XXL" },
 ];
 const sortOptions = [
-  { value: "", label: "highest" },
   { value: "highest", label: "highest" },
   { value: "lowest", label: "lowest" },
 ];
