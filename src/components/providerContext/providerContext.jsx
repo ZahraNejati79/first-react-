@@ -74,9 +74,9 @@ const reducer = (state, action) => {
     case "search": {
       // console.log("value:", action.event);
       if (action.event === "") {
-        return productsData;
+        return state;
       } else {
-        const filteredproduct = productsData.filter((p) =>
+        const filteredproduct = state.filter((p) =>
           p.title.toLowerCase().includes(action.event)
         );
         return filteredproduct;

@@ -5,14 +5,12 @@ import NavBar from "./components/navBar/navBar";
 import ProductList from "./components/productList/productList";
 import Wrapper from "./components/hoc/Wrapper";
 import ProviderContext from "./components/providerContext/providerContext";
-import SearchBar from "./common/Search/Search";
 
 const App = () => {
   return (
     <>
       <ProviderContext>
         <NavBar />
-        <SearchBar />
         <Filter />
         <ProductList />
       </ProviderContext>

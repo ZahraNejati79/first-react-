@@ -1,0 +1,14 @@
+.Select {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.Selection {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.Selection:focus {
+  outline: none;
+  background-color: #f4feff;
+}
